@@ -26,7 +26,7 @@ db.connect(function (error) {
 
 //Establish the Port
 
-  server.listen(8085,function check(error) {
+  server.listen(3306,function check(error) {
     if (error) 
     {
     console.log("Error....dddd!!!!");
