@@ -18,7 +18,7 @@ const db = mysql.createConnection({
 
 db.connect(function (error) {
     if (error) {
-      console.log("Error Connecting to DB");
+      console.log("Error Connecting to DB", error);
     } else {
       console.log("successfully Connected to DB");
     }
@@ -34,7 +34,7 @@ db.connect(function (error) {
 
     else 
     {
-        console.log("Started....!!!! 8085");
+        console.log("Started....!!!! 3306");
 
     }
 });
