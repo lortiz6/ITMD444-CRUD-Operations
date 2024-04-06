@@ -4,9 +4,6 @@ const mysql = require("mysql");
 const server = express();
 server.use(bodyParser.json());
 
-
-//Establish the database connection
-
 const db = mysql.createConnection({
 
     host: "localhost",
@@ -24,8 +21,6 @@ db.connect(function (error) {
     }
   });
 
-//Establish the Port
-
   server.listen(3306,function check(error) {
     if (error) 
     {
@@ -38,8 +33,6 @@ db.connect(function (error) {
 
     }
 });
-
-//Create the Records
 
 server.post("/api/student/add", (req, res) => {
     let details = {
@@ -57,10 +50,6 @@ server.post("/api/student/add", (req, res) => {
     });
   });
 
-
-
-//view the Records
-
 server.get("/api/student", (req, res) => {
     var sql = "SELECT * FROM student";
     db.query(sql, function (error, result) {
@@ -71,9 +60,6 @@ server.get("/api/student", (req, res) => {
       }
     });
   });
-
-
-//Search the Records
 
 server.get("/api/student/:id", (req, res) => {
     var studentid = req.params.id;
@@ -86,10 +72,6 @@ server.get("/api/student/:id", (req, res) => {
       }
     });
   });
-
-
-
-//Update the Records
 
 server.put("/api/student/update/:id", (req, res) => {
     let sql =
@@ -110,10 +92,6 @@ server.put("/api/student/update/:id", (req, res) => {
       }
     });
   });
-
-
-
-  //Delete the Records
 
   server.delete("/api/student/delete/:id", (req, res) => {
     let sql = "DELETE FROM student WHERE id=" + req.params.id + "";
